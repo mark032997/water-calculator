@@ -1,1 +1,98 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Water Only Calculator | Galena Park</title><link rel="stylesheet" href="styles.css"></head><body><main class="wrap"><nav class="nav"><div class="brand"><img src="gp-logo.png" alt="City of Galena Park logo"><div class="brand-text"><strong>Galena Park Water Calculator</strong><span>Resident billing comparison tool</span></div></div><div class="links"><a href="index.html" id="nav-water" class="active">Water Only</a><a href="full-bill.html" id="nav-full">Full Bill</a></div></nav><section class="hero"><div><h1>Water Only Calculator</h1><p>Enter monthly gallons to see the water charge now, what Galena Park pays Houston for clean water, and the current water-only loss.</p></div><img src="gp-logo.png" alt="City of Galena Park logo"></section><section class="panel"><div class="input-grid"><div><label class="title" for="gallons">Monthly water usage in gallons</label><input id="gallons" type="number" min="0" step="1" value="5000"></div><div class="toggle-card"><label class="toggle-row"><input id="seniorToggle" type="checkbox">Senior Citizen</label><div class="note">Uses the current senior water rate for NOW and the 3,500-gallon senior test for FUTURE.</div></div></div><div class="chips"><button class="chip" onclick="setGallons(2000)">2,000 gal.</button><button class="chip" onclick="setGallons(3500)">3,500 gal.</button><button class="chip" onclick="setGallons(4574)">Median: 4,574 gal.</button><button class="chip" onclick="setGallons(5000)">5,000 gal.</button><button class="chip" onclick="setGallons(6000)">6,000 gal.</button><button class="chip" onclick="setGallons(10000)">10,000 gal.</button></div><div class="metric-grid"><div class="metric blue"><div class="kicker">Water bill now</div><div class="amount" id="waterNow">$0.00</div><p>What the resident is billed now for water only, using the current 6,000-gallon minimum.</p></div><div class="metric yellow"><div class="kicker">Paid to COH</div><div class="amount" id="paidToCoh">$0.00</div><p>What the City pays Houston for incoming clean water at $4.73 per 1,000 gallons.</p></div><div class="metric red"><div class="kicker">City loses</div><div class="amount" id="cityLoss">$0.00</div><p>Current water-only shortfall before meter reading, billing, repairs, staff, vehicles, or reserves.</p></div></div><div class="subgrid"><div class="subbox"><h3>Full future bill preview</h3><div class="subamt" id="futureTotal">$0.00</div></div><div class="subbox"><h3>Future water - COH cost</h3><div class="subamt" id="futureWaterMargin">$0.00</div></div></div><div class="footnote">NOW uses the existing 6,000-gallon minimum. FUTURE preview uses a universal 3,500-gallon minimum. Future wastewater is estimated at <span class="formula">60% of the future water charge</span>.</div></section></main><script src="calculator.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Only Calculator | Galena Park</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    
+<nav class="nav">
+  <a class="brand" href="index.html">
+    <img class="brand-logo" src="gp-logo.png" alt="City of Galena Park logo">
+    <div class="brand-text">
+      <strong>Galena Park Water Calculator</strong>
+      <span>Simple resident billing comparison</span>
+    </div>
+  </a>
+  <div class="links">
+    <a href="index.html" id="nav-water" class="active">Water Only</a>
+    <a href="full-bill.html" id="nav-full">Full Bill</a>
+  </div>
+</nav>
+
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Water only</div>
+        <h1>See the clean water math.</h1>
+        <p>Enter monthly gallons to compare what a resident pays now for water, what Galena Park pays Houston, and the current water-only shortfall.</p>
+      </div>
+      <img src="gp-logo.png" alt="City of Galena Park logo">
+    </section>
+
+    
+<section class="panel">
+  <div class="input-grid">
+    <div>
+      <label class="title" for="gallons">Monthly water usage</label>
+      <div class="input-shell">
+        <input id="gallons" type="number" min="0" step="1" value="5000">
+      </div>
+    </div>
+    <div class="toggle-card">
+      <label class="toggle-row">
+        <input id="seniorToggle" type="checkbox">
+        Senior Citizen
+      </label>
+      <div class="note">Toggle on to use the current senior water rate now and the senior version of the 3,500-gallon test.</div>
+    </div>
+  </div>
+  <div class="chips">
+    <button class="chip" onclick="setGallons(2000)">2,000 gal.</button>
+    <button class="chip" onclick="setGallons(3500)">3,500 gal.</button>
+    <button class="chip" onclick="setGallons(4574)">Median 4,574</button>
+    <button class="chip" onclick="setGallons(5000)">5,000 gal.</button>
+    <button class="chip" onclick="setGallons(6000)">6,000 gal.</button>
+    <button class="chip" onclick="setGallons(10000)">10,000 gal.</button>
+  </div>
+
+      <div class="metric-grid">
+        <div class="metric blue">
+          <div class="kicker">Water bill now</div>
+          <div class="amount" id="waterNow">$0.00</div>
+          <p>Current Galena Park water charge only, using the existing 6,000-gallon minimum.</p>
+        </div>
+        <div class="metric gold">
+          <div class="kicker">Paid to COH</div>
+          <div class="amount" id="paidToCoh">$0.00</div>
+          <p>Clean water cost paid to the City of Houston at $4.73 per 1,000 gallons.</p>
+        </div>
+        <div class="metric red">
+          <div class="kicker">City loses</div>
+          <div class="amount" id="cityLoss">$0.00</div>
+          <p>Water-only shortfall before billing, repairs, staff, vehicles, equipment, or reserves.</p>
+        </div>
+      </div>
+
+      <div class="subgrid">
+        <div class="subbox">
+          <h3>Future full bill preview</h3>
+          <div class="subamt" id="futureTotal">$0.00</div>
+        </div>
+        <div class="subbox">
+          <h3>Future water minus COH cost</h3>
+          <div class="subamt" id="futureWaterMargin">$0.00</div>
+        </div>
+      </div>
+
+      <div class="footnote">
+        Current water uses the existing 6,000-gallon minimum. The future preview uses a universal 3,500-gallon minimum. Future wastewater is estimated at <span class="formula">70% of the future water charge</span>.
+      </div>
+    </section>
+    <div class="footer">City of Galena Park resident calculator draft</div>
+  </main>
+  <script src="calculator.js"></script>
+</body>
+</html>
