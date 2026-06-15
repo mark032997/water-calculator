@@ -19,11 +19,15 @@ ACTUAL calculator logic in calculator.js:
 - Trash: $22.50.
 - Tax: 8.25% on trash only.
 
-Check examples:
-At 3,500 gallons regular:
-- Future water = $21.00
-- Future sewer = $12.60
+Jacinto City comparison logic:
+- Water: $23.26 for first 2,000 gallons, then $6.26 per 1,000 gallons.
+- Sewer: $11.85 for first 2,000 gallons, then $2.99 per 1,000 gallons.
+- Garbage: $16.96.
+- EMS: $2.00.
 
-At 3,500 gallons senior:
-- Future water = $16.56
-- Future sewer = $9.93
+Check examples at 3,500 gallons:
+- Galena Park future regular water = $21.00.
+- Galena Park future regular sewer = $12.60.
+- Galena Park future senior water = $16.56.
+- Galena Park future senior sewer = $9.93.
+- Jacinto City comparison total = $66.65.
