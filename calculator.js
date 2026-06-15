@@ -6,19 +6,19 @@ const RATES = {
 
   currentRegularMinGallons: 6000,
   currentRegularMinCharge: 14.46,
-  currentRegularOverage: 7.76,
+  currentRegularOverage: 2.41,
 
   currentSeniorMinGallons: 6000,
-  currentSeniorMinCharge: 10.58,
-  currentSeniorOverage: 5.70,
+  currentSeniorMinCharge: 10.56,
+  currentSeniorOverage: 1.76,
 
   futureMinGallons: 3500,
-  futureRegularPerKgal: 7.76,
-  futureSeniorPerKgal: 5.70,
+  futureRegularPerKgal: 6.00,
+  futureSeniorPerKgal: 4.73,
 
   // Future wastewater assumption requested by user:
-  // 70% of future water charge.
-  futureWastewaterPctOfWater: 0.70,
+  // 60% of future water charge.
+  futureWastewaterPctOfWater: 0.60,
 
   // Current full bill assumption used in this public calculator.
   currentSewerPctOfWater: 1.00,
