@@ -15,7 +15,7 @@ ACTUAL calculator logic in calculator.js:
 - City of Houston clean water cost: $4.73 per 1,000 gallons.
 - Future regular water: 3,500-gallon minimum at $6.00 per 1,000 gallons. Minimum water charge: $21.00.
 - Future senior water: 3,500-gallon minimum at $4.73 per 1,000 gallons. Minimum water charge: $16.56.
-- Future sewer: 60% of future water charge.
+- Future sewer: 70% of future water charge.
 - Trash: $22.50.
 - Tax: 8.25% on trash only.
 
@@ -27,7 +27,7 @@ Jacinto City comparison logic:
 
 Check examples at 3,500 gallons:
 - Galena Park future regular water = $21.00.
-- Galena Park future regular sewer = $12.60.
+- Galena Park future regular sewer = $14.70.
 - Galena Park future senior water = $16.56.
 - Galena Park future senior sewer = $9.93.
 - Jacinto City comparison total = $66.65.

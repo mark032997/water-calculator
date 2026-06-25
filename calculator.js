@@ -23,11 +23,11 @@ const RATES = {
   // Universal 3,500-gallon minimum.
   // Regular: $6.00 per 1,000 gallons.
   // Senior: at cost, $4.73 per 1,000 gallons.
-  // Future sewer equals 60% of future water.
+  // Future sewer equals 70% of future water.
   futureMinGallons: 3500,
   futureRegularPerKgal: 6.00,
   futureSeniorPerKgal: 4.73,
-  futureWastewaterPctOfWater: 0.60,
+  futureWastewaterPctOfWater: 0.70,
 
   // JACINTO CITY COMPARISON
   // Water: $23.26 for first 2,000 gallons, then $6.26 per 1,000 gallons.
