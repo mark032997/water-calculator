@@ -7,13 +7,16 @@ const RATES = {
   trashTaxRate: 0.0825,
 
   // CURRENT GALENA PARK SYSTEM
-  // Regular: 6,000-gallon minimum at $2.41 per 1,000 gallons.
-  // Senior: 6,000-gallon minimum at $1.76 per 1,000 gallons.
+  // Regular: $14.46 through 6,000 gallons, then each started 1,000-gallon overage block is $7.76.
+  // Senior: $10.58 through 6,000 gallons, then each started 1,000-gallon overage block is $5.70.
+  // Overage is rounded up by block: 6,001-7,000 = 1 overage block; 7,001-8,000 = 2 blocks.
   // Current sewer equals current water.
   currentRegularMinGallons: 6000,
-  currentRegularPerKgal: 2.41,
+  currentRegularMinCharge: 14.46,
+  currentRegularOveragePerKgal: 7.76,
   currentSeniorMinGallons: 6000,
-  currentSeniorPerKgal: 1.76,
+  currentSeniorMinCharge: 10.58,
+  currentSeniorOveragePerKgal: 5.70,
   currentSewerPctOfWater: 1.00,
 
   // PROPOSED / FUTURE GALENA PARK SYSTEM
@@ -56,13 +59,24 @@ function billByMinimumAndRate(gallons, minGallons, perKgal) {
 
 function billWithMinimumCharge(gallons, minGallons, minCharge, overagePerKgal) {
   const overGallons = Math.max(0, gallons - minGallons);
-  return minCharge + (overGallons / 1000) * overagePerKgal;
+  const overageBlocks = Math.ceil(overGallons / 1000);
+  return minCharge + overageBlocks * overagePerKgal;
 }
 
 function currentWater(gallons, isSenior) {
   return isSenior
-    ? billByMinimumAndRate(gallons, RATES.currentSeniorMinGallons, RATES.currentSeniorPerKgal)
-    : billByMinimumAndRate(gallons, RATES.currentRegularMinGallons, RATES.currentRegularPerKgal);
+    ? billWithMinimumCharge(
+        gallons,
+        RATES.currentSeniorMinGallons,
+        RATES.currentSeniorMinCharge,
+        RATES.currentSeniorOveragePerKgal
+      )
+    : billWithMinimumCharge(
+        gallons,
+        RATES.currentRegularMinGallons,
+        RATES.currentRegularMinCharge,
+        RATES.currentRegularOveragePerKgal
+      );
 }
 
 function futureWater(gallons, isSenior) {
